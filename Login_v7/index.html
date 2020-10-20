@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <title>Login V6</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <!--<link rel="icon" type="image/png" href="images/icons/favicon.ico" />-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 ">
+                <form class="login100-form validate-form" asp-controller="Autorizacao" asp-action="LoginCliente" method="post">
+                    <span class="login100-form-title ">
+						Faça seu Cadastro
+					</span>
+                    <p class="YellowLing m-b-10"> Na YellowLing</p>
+                    <span class="login100-form-avatar">
+						<img src="images/Mascote.png" alt="AVATAR">
+					</span>
+
+                    <div class="wrap-input100 validate-input m-t-15 m-b-35" data-validate="Digite seu E-mail">
+                        <input class="input100" name="Usuário" type="email" asp-for="Email">
+                        <span class="focus-input100" data-placeholder="Usuário"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-50" data-validate="Digite a senha">
+                        <input id="senha" class="input100" type="password" name="Senha" type="password" asp-for="Password">
+                        <span class="focus-input100" data-placeholder="Senha"></span>
+                    </div>
+
+                    <div class="d-flex bd-highlight mb-3">
+                        <div class="p-2 bd-highlight">
+                            <label class="m-b-50 RememberMe">
+								<input class="RememberMeCheckbox" type="RADIO" asp-for="RememberMe" />
+								Salvar Senha?
+				
+							</label>
+
+                        </div>
+
+                        <div class="ml-auto p-2 bd-highlight">
+
+                            <label id="olho" class="m-b-50 RememberMe">
+								
+								Mostrar Senha
+				
+							</label>
+                        </div>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
+						Entrar
+						</button>
+                    </div>
+
+                    <ul class="login-more p-t-20">
+                        <li class="m-b-8">
+                            <span class="txt1">
+								Esqueceu
+							</span>
+
+                            <a href="#" class="txt2">
+						Usuário / senha?
+							</a>
+                        </li>
+
+                        <li>
+                            <span class="txt1">
+								Não tem uma conta?
+							</span>
+
+                            <a asp-area="" asp-controller="Autorizacao" asp-action="RegisterCliente" class="txt2">
+								inscrever-se
+							</a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+    <script>
+        var senha = $('#senha');
+        var olho = $("#olho");
+
+        olho.mousedown(function() {
+            senha.attr("type", "text");
+        });
+
+        olho.mouseup(function() {
+            senha.attr("type", "password");
+        });
+        // para evitar o problema de arrastar a imagem e a senha continuar exposta, 
+        //citada pelo nosso amigo nos comentários
+        $("#olho").mouseout(function() {
+            $("#senha").attr("type", "password");
+        });
+    </script>
+
+</body>
+
+</html>
